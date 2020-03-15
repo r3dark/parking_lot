@@ -1,10 +1,10 @@
-package service;
+package io.gojek.parking_lot.service;
 
-import model.Level;
-import model.Vehicle;
+import io.gojek.parking_lot.model.Vehicle;
 
-import java.util.List;
-
+/**
+ * @author rohitsharma
+ */
 public interface ParkingService {
 
 	public String createParkingLot(Integer capacity) throws Exception;
@@ -15,9 +15,9 @@ public interface ParkingService {
 
 	public String getParkingLotStatus() throws Exception;
 
-	public List<String> getRegistrationNumbersByColor(String color) throws Exception;
+	public String getRegistrationNumbersByColor(String color) throws Exception;
 
-	public List<Integer> getSlotNumbersByColor(String color) throws Exception;
+	public String getSlotNumbersByColor(String color) throws Exception;
 
 	public String getSlotByRegistrationNumber(String vehicleRegistrationNumber) throws Exception;
 }

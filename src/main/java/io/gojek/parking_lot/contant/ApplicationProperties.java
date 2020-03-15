@@ -1,5 +1,8 @@
-package Contant;
+package io.gojek.parking_lot.contant;
 
+/**
+ * @author rohitsharma
+ */
 public class ApplicationProperties {
 
 	// commands
@@ -20,16 +23,18 @@ public class ApplicationProperties {
 	// Responses
 	public static final String NOT_FOUND = "Not found";
 
-	public static final String PARKING_LOT_CREATED_MESSAGE = "Created a parking lot with {$} slots";
+	public static final String PARKING_LOT_CREATED_MESSAGE = "Created a parking lot with {$capacity} slots";
 
 	public static final String PARKING_FULL_MESSAGE = "Sorry, parking lot is full";
 
-	public static final String PARKING_ALLOCATED_MESSAGE = "Allocated slot number: {$}";
+	public static final String PARKING_ALLOCATED_MESSAGE = "Allocated slot number: {$slot} at level {$level}";
 
-	public static final String PARKING_UNALLOCATED_MESSAGE = "Slot number {$} is free";
+	public static final String PARKING_UNALLOCATED_MESSAGE = "Slot number {$slot} is free at level {$level}";
+
+	public static final String VEHICLE_ALREADY_PARKED_MESSAGE = "Vehicle with {$registration_number} registration number is already parked";
+
+	public static final String UNABLE_TO_DEALLOCATE_PARKING_MESSAGE = "Sorry, we are unable to deallocate the parking at {$slot}";
 
 	// Miscellaneous
 	public static final Integer DEFAULT_LEVEL_SIZE = 10;
-
-	public static final String PARKING_LOT_EMPTIED = "Parking lot emptied";
 }

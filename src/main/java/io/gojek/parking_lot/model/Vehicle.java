@@ -1,4 +1,4 @@
-package model;
+package io.gojek.parking_lot.model;
 
 /**
  * @author rohitsharma
