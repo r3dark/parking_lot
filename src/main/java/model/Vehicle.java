@@ -9,11 +9,6 @@ public class Vehicle {
 
 	private String vehicleColor;
 
-	public Vehicle(String vehicleRegistrationNumber, String vehicleColor) {
-		this.vehicleRegistrationNumber = vehicleRegistrationNumber;
-		this.vehicleColor = vehicleColor;
-	}
-
 	/**
 	 * @return registration number of vehicle
 	 */

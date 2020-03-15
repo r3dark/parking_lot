@@ -1,28 +1,23 @@
 package model;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 public class ParkingLot {
 
-	private Map<Integer, Vehicle> slot;
+	private List<Level> parkingLot;
 
-	public ParkingLot(Integer parkingLotCapacity) {
-		slot = new HashMap<>(parkingLotCapacity, 1);
+	public List<Level> getParkingLot() {
+		return parkingLot;
 	}
 
-	public Map<Integer, Vehicle> getSlot() {
-		return slot;
-	}
-
-	public void setSlot(Map<Integer, Vehicle> slot) {
-		this.slot = slot;
+	public void setParkingLot(List<Level> parkingLot) {
+		this.parkingLot = parkingLot;
 	}
 
 	@Override
 	public String toString() {
 		return "ParkingLot{" +
-				"slot=" + slot +
+				"parkingLot=" + parkingLot +
 				'}';
 	}
 }
