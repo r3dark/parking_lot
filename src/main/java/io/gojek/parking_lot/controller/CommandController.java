@@ -1,4 +1,4 @@
-package io.gojek.parking_lot.processor;
+package io.gojek.parking_lot.controller;
 
 import io.gojek.parking_lot.contant.ApplicationProperties;
 import io.gojek.parking_lot.exception.ParkingLotExceptionMessage;
@@ -8,11 +8,11 @@ import io.gojek.parking_lot.service.impl.ParkingServiceImpl;
 /**
  * @author rohitsharma
  */
-public class CommandProcessor {
+public class CommandController {
 
 	ParkingServiceImpl parkingService;
 
-	public CommandProcessor() {
+	public CommandController() {
 		parkingService = new ParkingServiceImpl();
 	}
 
@@ -56,14 +56,10 @@ public class CommandProcessor {
 				break;
 			}
 			case ApplicationProperties.PARKING_LOT_STATUS : {
-				try {
-					if (splitCommand.length == 1) {
-						response = parkingService.getParkingLotStatus();
-					} else {
-						throw new ParkingLotException(ParkingLotExceptionMessage.INVALID_COMMAND.getExceptionMessage());
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
+				if (splitCommand.length == 1) {
+					response = parkingService.getParkingLotStatus();
+				} else {
+					throw new ParkingLotException(ParkingLotExceptionMessage.INVALID_COMMAND.getExceptionMessage());
 				}
 				break;
 			}

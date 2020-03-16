@@ -1,6 +1,6 @@
 package io.gojek.parking_lot;
 
-import io.gojek.parking_lot.processor.CommandProcessor;
+import io.gojek.parking_lot.controller.CommandController;
 import io.gojek.parking_lot.contant.ApplicationProperties;
 import io.gojek.parking_lot.exception.ParkingLotExceptionMessage;
 import io.gojek.parking_lot.exception.handler.ParkingLotException;
@@ -23,18 +23,18 @@ public class ParkingLotApplication {
 		BufferedReader bufferedReader = null;
 		String inputLine;
 		int lineNumber = 0;
-		CommandProcessor commandProcessor = new CommandProcessor();
+		CommandController commandController = new CommandController();
 
 		try {
 			if (args.length == 1) {
 				File file = new File(args[0]);
+				if (file.length() == 0) {
+					throw new ParkingLotException(ParkingLotExceptionMessage.EMPTY_FILE.getExceptionMessage());
+				}
 				try {
 					bufferedReader = new BufferedReader(new FileReader(file));
 					while ((inputLine = bufferedReader.readLine()) != null) {
-						commandProcessor.command(inputLine.trim(), ++lineNumber);
-					}
-					if (lineNumber == 0) {
-						throw new ParkingLotException(ParkingLotExceptionMessage.EMPTY_FILE.getExceptionMessage());
+						commandController.command(inputLine.trim(), ++lineNumber);
 					}
 				} catch (Exception e) {
 					throw new ParkingLotException(ParkingLotExceptionMessage.REQUEST_PROCESSING_ERROR.getExceptionMessage()
@@ -51,7 +51,7 @@ public class ParkingLotApplication {
 						if (inputLine.equals("exit")) {
 							break;
 						} else {
-							commandProcessor.command(inputLine, lineNumber);
+							commandController.command(inputLine, lineNumber);
 						}
 					} catch (Exception e) {
 						System.out.println(ParkingLotExceptionMessage.REQUEST_PROCESSING_ERROR.getExceptionMessage()
@@ -61,7 +61,7 @@ public class ParkingLotApplication {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		} finally {
 			if (bufferedReader != null) {
 				bufferedReader.close();

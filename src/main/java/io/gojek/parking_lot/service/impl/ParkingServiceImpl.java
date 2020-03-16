@@ -24,6 +24,11 @@ public class ParkingServiceImpl implements ParkingService {
 		if (parkingLot.getParkingLot() != null) {
 			throw new ParkingLotException(ParkingLotExceptionMessage.PARKING_LOT_ALREADY_CREATED.getExceptionMessage());
 		}
+
+		if (capacity < 1) {
+			throw new ParkingLotException(ParkingLotExceptionMessage.INVALID_PARKING_LOT_SIZE_ERROR.getExceptionMessage());
+		}
+
 		try {
 			int levelsRequired = computeLevels(capacity);
 			int tempCapacity = capacity;
@@ -67,8 +72,8 @@ public class ParkingServiceImpl implements ParkingService {
 	@Override
 	public String parkVehicle(Vehicle vehicle) throws ParkingLotException {
 
+		validateParkingLot();
 		try {
-			validateParkingLot();
 			int levelNumber = 1;
 			for (Level level : parkingLot.getParkingLot()) {
 				validateLevel(level);
@@ -91,8 +96,11 @@ public class ParkingServiceImpl implements ParkingService {
 	@Override
 	public String unParkVehicle(Integer slot) throws ParkingLotException {
 
+		validateParkingLot();
+		if (slot < 1) {
+			throw new ParkingLotException(ParkingLotExceptionMessage.INVALID_PARKING_LOT_SLOT_ERROR.getExceptionMessage());
+		}
 		try {
-			validateParkingLot();
 			int level = computeLevels(slot);
 			if (slot > ApplicationProperties.DEFAULT_LEVEL_SIZE) {
 				slot /= ApplicationProperties.DEFAULT_LEVEL_SIZE;
@@ -111,8 +119,8 @@ public class ParkingServiceImpl implements ParkingService {
 	@Override
 	public String getParkingLotStatus() throws ParkingLotException {
 
+		validateParkingLot();
 		try {
-			validateParkingLot();
 			StringBuilder stringBuilder = new StringBuilder();
 			int levelNumber = 1;
 			stringBuilder.append("Level ").append("Slot No. ").append("Registration No. ").append("Colour\n");
@@ -130,9 +138,6 @@ public class ParkingServiceImpl implements ParkingService {
 			}
 			return stringBuilder.toString();
 		} catch (Exception e) {
-			if (e.getMessage().equals(ParkingLotExceptionMessage.PARKING_LOT_NOT_EXIST_ERROR.getExceptionMessage())) {
-				return ParkingLotExceptionMessage.PARKING_LOT_NOT_EXIST_ERROR.getExceptionMessage();
-			}
 			throw new ParkingLotException(ParkingLotExceptionMessage.ERROR_WHILE_GETTING_PARKING_LOT_STATUS.getExceptionMessage(), e);
 		}
 	}
@@ -140,13 +145,13 @@ public class ParkingServiceImpl implements ParkingService {
 	@Override
 	public String getRegistrationNumbersByColor(String color) throws ParkingLotException {
 
+		validateParkingLot();
 		try {
-			validateParkingLot();
 			List<String> registrationNumbers = new ArrayList<>();
 			for (Level level : parkingLot.getParkingLot()) {
 				validateLevel(level);
 				for (int i = 0; i < level.getSlots().length; i++) {
-					if ((level.getSlots()[i] != null) && level.getSlots()[i].getVehicleColor().equals(color)) {
+					if ((level.getSlots()[i] != null) && level.getSlots()[i].getVehicleColor().equalsIgnoreCase(color)) {
 						registrationNumbers.add(level.getSlots()[i].getVehicleRegistrationNumber());
 					}
 				}
@@ -166,14 +171,14 @@ public class ParkingServiceImpl implements ParkingService {
 	@Override
 	public String getSlotNumbersByColor(String color) throws ParkingLotException {
 
+		validateParkingLot();
 		try {
-			validateParkingLot();
 			int levelNumber = 1;
 			List<String> slotNumbers = new ArrayList<>();
 			for (Level level : parkingLot.getParkingLot()) {
 				validateLevel(level);
 				for (int i = 0; i < level.getSlots().length; i++) {
-					if ((level.getSlots()[i] != null) && level.getSlots()[i].getVehicleColor().equals(color)) {
+					if ((level.getSlots()[i] != null) && level.getSlots()[i].getVehicleColor().equalsIgnoreCase(color)) {
 						slotNumbers.add("Slot " .concat(String.valueOf((i + 1))).concat(" at level L").concat(String.valueOf(levelNumber)));
 					}
 				}
@@ -192,13 +197,13 @@ public class ParkingServiceImpl implements ParkingService {
 	@Override
 	public String getSlotByRegistrationNumber(String vehicleRegistrationNumber) throws ParkingLotException {
 
+		validateParkingLot();
 		try {
-			validateParkingLot();
 			int levelNumber = 1;
 			for (Level level : parkingLot.getParkingLot()) {
 				validateLevel(level);
 				for (int i = 0; i < level.getSlots().length; i++) {
-					if ((level.getSlots()[i] != null) && level.getSlots()[i].getVehicleRegistrationNumber().equals(vehicleRegistrationNumber)) {
+					if ((level.getSlots()[i] != null) && level.getSlots()[i].getVehicleRegistrationNumber().equalsIgnoreCase(vehicleRegistrationNumber)) {
 						return ("Slot " .concat(String.valueOf(i + 1)).concat(" at level L").concat(String.valueOf(levelNumber)));
 					}
 				}
