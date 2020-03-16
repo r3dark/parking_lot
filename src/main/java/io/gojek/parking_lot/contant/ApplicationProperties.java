@@ -20,6 +20,8 @@ public class ApplicationProperties {
 
 	public static final String SLOT_NUMBER_FOR_REGISTRATION_NUMBER = "slot_number_for_registration_number";
 
+	public static final String RESET_PARKING_LOT = "reset";
+
 	// Responses
 	public static final String NOT_FOUND = "Not found";
 
@@ -34,6 +36,8 @@ public class ApplicationProperties {
 	public static final String VEHICLE_ALREADY_PARKED_MESSAGE = "Vehicle with {$registration_number} registration number is already parked";
 
 	public static final String UNABLE_TO_DEALLOCATE_PARKING_MESSAGE = "Sorry, we are unable to deallocate the parking at {$slot}";
+
+	public static final String PARKING_LOT_RESET_SUCCESSFUL_MESSAGE = "Parking lot reset successful.";
 
 	// Miscellaneous
 	public static final Integer DEFAULT_LEVEL_SIZE = 10;

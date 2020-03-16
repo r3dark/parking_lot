@@ -79,13 +79,15 @@ public class ParkingLotApplication {
 		System.out.println(
 				new StringBuilder()
 				.append("Please use available commands, insert values in place of {variable}:\n")
+				.append("Note: Default level size is 10, i.e. each level has 10 parking slots\n")
 				.append("1. ").append(ApplicationProperties.CREATE_PARKING_LOT).append(" {parking_lot_size}\n")
 				.append("2. ").append(ApplicationProperties.PARK_VEHICLE).append(" {registration_number} {color}\n")
 				.append("3. ").append(ApplicationProperties.UN_PARK_VEHICLE).append(" {slot_number}\n")
 				.append("4. ").append(ApplicationProperties.PARKING_LOT_STATUS).append("\n")
 				.append("5. ").append(ApplicationProperties.REGISTRATION_NUMBER_FOR_CARS_WITH_COLOR).append(" {color}\n")
 				.append("6. ").append(ApplicationProperties.SLOT_NUMBERS_FOR_CARS_WITH_COLOR).append(" {color}\n")
-				.append("7. ").append(ApplicationProperties.SLOT_NUMBER_FOR_REGISTRATION_NUMBER).append(" {registration_number}").toString()
+				.append("7. ").append(ApplicationProperties.SLOT_NUMBER_FOR_REGISTRATION_NUMBER).append(" {registration_number}\n")
+				.append("8. ").append(ApplicationProperties.RESET_PARKING_LOT).toString()
 		);
 	}
 }

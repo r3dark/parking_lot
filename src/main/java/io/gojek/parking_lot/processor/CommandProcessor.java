@@ -91,6 +91,10 @@ public class CommandProcessor {
 				}
 				break;
 			}
+			case ApplicationProperties.RESET_PARKING_LOT : {
+				response = parkingService.reset();
+			}
+			break;
 			default : {
 				if (lineNumber == 0) {
 					throw new ParkingLotException(ParkingLotExceptionMessage.INVALID_COMMAND.getExceptionMessage()

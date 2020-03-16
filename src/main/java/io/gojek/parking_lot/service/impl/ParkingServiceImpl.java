@@ -130,6 +130,9 @@ public class ParkingServiceImpl implements ParkingService {
 			}
 			return stringBuilder.toString();
 		} catch (Exception e) {
+			if (e.getMessage().equals(ParkingLotExceptionMessage.PARKING_LOT_NOT_EXIST_ERROR.getExceptionMessage())) {
+				return ParkingLotExceptionMessage.PARKING_LOT_NOT_EXIST_ERROR.getExceptionMessage();
+			}
 			throw new ParkingLotException(ParkingLotExceptionMessage.ERROR_WHILE_GETTING_PARKING_LOT_STATUS.getExceptionMessage(), e);
 		}
 	}
@@ -205,6 +208,12 @@ public class ParkingServiceImpl implements ParkingService {
 		} catch (Exception e) {
 			throw new ParkingLotException(ParkingLotExceptionMessage.ERROR_WHILE_GETTING_SLOT_BY_REGISTRATION_NUMBER.getExceptionMessage().replace("{$registration_number}", vehicleRegistrationNumber), e);
 		}
+	}
+
+	@Override
+	public String reset() {
+		parkingLot = new ParkingLot();
+		return ApplicationProperties.PARKING_LOT_RESET_SUCCESSFUL_MESSAGE;
 	}
 
 	private void validateParkingLot() throws ParkingLotException {
