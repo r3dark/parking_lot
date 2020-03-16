@@ -16,7 +16,6 @@ build
 *#
 
 # Build Files #
-bin
 out
 target
 build/

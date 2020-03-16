@@ -29,6 +29,7 @@ public class ParkingLotApplication {
 			if (args.length == 1) {
 				File file = new File(args[0]);
 				if (file.length() == 0) {
+					System.out.println("Input file is empty.");
 					throw new ParkingLotException(ParkingLotExceptionMessage.EMPTY_FILE.getExceptionMessage());
 				}
 				try {
@@ -60,8 +61,6 @@ public class ParkingLotApplication {
 					}
 				}
 			}
-		} catch (Exception e) {
-//			e.printStackTrace();
 		} finally {
 			if (bufferedReader != null) {
 				bufferedReader.close();
