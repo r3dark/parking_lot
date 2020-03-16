@@ -44,6 +44,14 @@ root of project and execute :
 ./bin/parking_lot.sh {input_file_path}
 ```
 
+- There is a sample test input file already present 
+in bin directory. To run application with that, 
+open terminal at root of project and execute : 
+
+```
+./bin/parking_lot.sh file_inputs.txt
+```
+
 - To run the application in _**interactive mode**_, 
 open terminal at root of project and execute : 
 
