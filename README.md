@@ -29,8 +29,9 @@ of project and execute :
 ./bin/setup.sh
 ```
 
-This will build the application with dependencies, 
-run the test suite and get it ready for execution.
+This will run the test suite, 
+build the application with required dependencies, 
+and get it ready for execution.
 
 ### Execute / Run
 This project can be run in one of the 
@@ -49,7 +50,7 @@ in bin directory. To run application with that,
 open terminal at root of project and execute : 
 
 ```
-./bin/parking_lot.sh file_inputs.txt
+./bin/parking_lot.sh bin/file_inputs.txt
 ```
 
 - To run the application in _**interactive mode**_, 

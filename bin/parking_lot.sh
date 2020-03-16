@@ -4,7 +4,7 @@
 
 arg1=$1
 ## Location of application jar
-dir=../build/libs
+dir=build/libs
 ## Name of executable jar
 jar_name=parking_lot-1.0-SNAPSHOT.jar
 
