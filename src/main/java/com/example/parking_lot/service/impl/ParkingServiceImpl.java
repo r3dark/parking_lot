@@ -18,6 +18,11 @@ public class ParkingServiceImpl implements ParkingService {
 
 	ParkingLot parkingLot = new ParkingLot();
 
+	/**
+	 *
+	 * @param capacity
+	 * capacity of parking lot
+	 */
 	@Override
 	public String createParkingLot(Integer capacity) throws ParkingLotException {
 
@@ -51,6 +56,13 @@ public class ParkingServiceImpl implements ParkingService {
 		}
 	}
 
+	/**
+	 *
+	 * @param parkingLotLevelsList
+	 * List of levels
+	 * @param capacity
+	 * capacity of parking lot
+	 */
 	private void createParkingLotLevels(List<Level> parkingLotLevelsList, Integer capacity) {
 
 		Vehicle[] slotList = new Vehicle[capacity];
@@ -59,7 +71,11 @@ public class ParkingServiceImpl implements ParkingService {
 		parkingLotLevelsList.add(level);
 	}
 
-
+	/**
+	 *
+	 * @param capacity
+	 * capacity of parking lot
+	 */
 	private int computeLevels(Integer capacity) {
 
 		if ((capacity % ApplicationProperties.DEFAULT_LEVEL_SIZE) == 0) {
@@ -69,6 +85,11 @@ public class ParkingServiceImpl implements ParkingService {
 		}
 	}
 
+	/**
+	 *
+	 * @param vehicle
+	 * vehicle to be parked
+	 */
 	@Override
 	public String parkVehicle(Vehicle vehicle) throws ParkingLotException {
 
@@ -93,6 +114,11 @@ public class ParkingServiceImpl implements ParkingService {
 		}
 	}
 
+	/**
+	 *
+	 * @param slot
+	 * slot to be emptied
+	 */
 	@Override
 	public String unParkVehicle(Integer slot) throws ParkingLotException {
 
@@ -116,6 +142,10 @@ public class ParkingServiceImpl implements ParkingService {
 		}
 	}
 
+	/**
+	 *
+	 * get parking lot status
+	 */
 	@Override
 	public String getParkingLotStatus() throws ParkingLotException {
 
@@ -142,6 +172,11 @@ public class ParkingServiceImpl implements ParkingService {
 		}
 	}
 
+	/**
+	 *
+	 * @param color
+	 * color by which registration numbers need to be fetched
+	 */
 	@Override
 	public String getRegistrationNumbersByColor(String color) throws ParkingLotException {
 
@@ -168,6 +203,11 @@ public class ParkingServiceImpl implements ParkingService {
 		}
 	}
 
+	/**
+	 *
+	 * @param color
+	 * color by which slot numbers need to be fetched
+	 */
 	@Override
 	public String getSlotNumbersByColor(String color) throws ParkingLotException {
 
@@ -194,6 +234,11 @@ public class ParkingServiceImpl implements ParkingService {
 		}
 	}
 
+	/**
+	 *
+	 * @param vehicleRegistrationNumber
+	 * vehicle registration number by which slot numbers need to be fetched
+	 */
 	@Override
 	public String getSlotByRegistrationNumber(String vehicleRegistrationNumber) throws ParkingLotException {
 
@@ -215,18 +260,30 @@ public class ParkingServiceImpl implements ParkingService {
 		}
 	}
 
+	/**
+	 *
+	 * reset parking lot
+	 */
 	@Override
 	public String reset() {
 		parkingLot = new ParkingLot();
 		return ApplicationProperties.PARKING_LOT_RESET_SUCCESSFUL_MESSAGE;
 	}
 
+	/**
+	 *
+	 * validate parking lot
+	 */
 	private void validateParkingLot() throws ParkingLotException {
 		if (parkingLot.getParkingLot() == null) {
 			throw new ParkingLotException(ParkingLotExceptionMessage.PARKING_LOT_NOT_EXIST_ERROR.getExceptionMessage());
 		}
 	}
 
+	/**
+	 *
+	 * validate parking lot level
+	 */
 	private void validateLevel(Level level) throws ParkingLotException {
 		if (level.getSlots() == null) {
 			throw new ParkingLotException(ParkingLotExceptionMessage.PARKING_LEVEL_NOT_EXIST_ERROR.getExceptionMessage());
