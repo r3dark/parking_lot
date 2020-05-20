@@ -1,4 +1,4 @@
-package io.gojek.parking_lot.exception;
+package com.example.parking_lot.exception;
 
 /**
  * @author rohitsharma
@@ -21,7 +21,7 @@ public enum ParkingLotExceptionMessage {
 	ERROR_WHILE_GETTING_SLOT_NUMBERS_BY_COLOR ("Error occurred while getting slot numbers by color {$color}"),
 	ERROR_WHILE_GETTING_SLOT_BY_REGISTRATION_NUMBER ("Error occurred while getting slot number with registration number {$registration_number}");
 
-	private String exceptionMessage;
+	private final String exceptionMessage;
 
 	ParkingLotExceptionMessage(String message) {
 		this.exceptionMessage = message;

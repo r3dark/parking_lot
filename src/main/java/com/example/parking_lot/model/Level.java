@@ -1,4 +1,4 @@
-package io.gojek.parking_lot.model;
+package com.example.parking_lot.model;
 
 import java.util.Arrays;
 

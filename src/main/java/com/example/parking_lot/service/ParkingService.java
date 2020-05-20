@@ -1,7 +1,7 @@
-package io.gojek.parking_lot.service;
+package com.example.parking_lot.service;
 
-import io.gojek.parking_lot.exception.handler.ParkingLotException;
-import io.gojek.parking_lot.model.Vehicle;
+import com.example.parking_lot.model.Vehicle;
+import com.example.parking_lot.exception.handler.ParkingLotException;
 
 /**
  * @author rohitsharma

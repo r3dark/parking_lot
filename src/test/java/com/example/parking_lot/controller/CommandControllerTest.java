@@ -1,7 +1,7 @@
-package io.gojek.parking_lot.controller;
+package com.example.parking_lot.controller;
 
-import io.gojek.parking_lot.exception.ParkingLotExceptionMessage;
-import io.gojek.parking_lot.exception.handler.ParkingLotException;
+import com.example.parking_lot.exception.handler.ParkingLotException;
+import com.example.parking_lot.exception.ParkingLotExceptionMessage;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 

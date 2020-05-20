@@ -1,4 +1,4 @@
-package io.gojek.parking_lot.exception.handler;
+package com.example.parking_lot.exception.handler;
 
 /**
  * @author rohitsharma

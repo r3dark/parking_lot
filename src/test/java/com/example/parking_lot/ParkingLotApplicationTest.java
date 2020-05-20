@@ -1,8 +1,7 @@
-package io.gojek.parking_lot;
+package com.example.parking_lot;
 
-import io.gojek.parking_lot.exception.ParkingLotExceptionMessage;
-import io.gojek.parking_lot.exception.handler.ParkingLotException;
-import org.hamcrest.Matcher;
+import com.example.parking_lot.exception.ParkingLotExceptionMessage;
+import com.example.parking_lot.exception.handler.ParkingLotException;
 import org.junit.*;
 import org.junit.rules.ExpectedException;
 

@@ -1,12 +1,12 @@
-package io.gojek.parking_lot.service.impl;
+package com.example.parking_lot.service.impl;
 
-import io.gojek.parking_lot.contant.ApplicationProperties;
-import io.gojek.parking_lot.exception.ParkingLotExceptionMessage;
-import io.gojek.parking_lot.exception.handler.ParkingLotException;
-import io.gojek.parking_lot.model.Level;
-import io.gojek.parking_lot.model.ParkingLot;
-import io.gojek.parking_lot.model.Vehicle;
-import io.gojek.parking_lot.service.ParkingService;
+import com.example.parking_lot.model.Level;
+import com.example.parking_lot.model.ParkingLot;
+import com.example.parking_lot.model.Vehicle;
+import com.example.parking_lot.properties.ApplicationProperties;
+import com.example.parking_lot.service.ParkingService;
+import com.example.parking_lot.exception.handler.ParkingLotException;
+import com.example.parking_lot.exception.ParkingLotExceptionMessage;
 
 import java.util.ArrayList;
 import java.util.List;

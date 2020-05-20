@@ -1,10 +1,11 @@
-package io.gojek.parking_lot.controller;
+package com.example.parking_lot.controller;
 
-import io.gojek.parking_lot.contant.ApplicationProperties;
-import io.gojek.parking_lot.exception.ParkingLotExceptionMessage;
-import io.gojek.parking_lot.exception.handler.ParkingLotException;
-import io.gojek.parking_lot.model.Vehicle;
-import io.gojek.parking_lot.service.impl.ParkingServiceImpl;
+import com.example.parking_lot.exception.ParkingLotExceptionMessage;
+import com.example.parking_lot.exception.handler.ParkingLotException;
+import com.example.parking_lot.model.Vehicle;
+import com.example.parking_lot.properties.ApplicationProperties;
+import com.example.parking_lot.service.impl.ParkingServiceImpl;
+
 /**
  * @author rohitsharma
  */

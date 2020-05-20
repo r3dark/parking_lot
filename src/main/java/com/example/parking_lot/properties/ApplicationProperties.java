@@ -1,4 +1,4 @@
-package io.gojek.parking_lot.contant;
+package com.example.parking_lot.properties;
 
 /**
  * @author rohitsharma
