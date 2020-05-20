@@ -7,7 +7,6 @@ logs
 .idea
 dist
 build
-ParkingLot.pdf
 
 # Operating System Files
 *.DS_Store
