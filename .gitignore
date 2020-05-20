@@ -26,3 +26,6 @@ build/
 *.ipr
 *.iws
 *.idea
+
+# Other files
+ParkingLot.pdf
